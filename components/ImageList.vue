@@ -21,9 +21,9 @@ const images = computed(() => {
 });
 </script>
 <template>
-  <v-row class="mt-n15">
-    <v-col cols="4" v-for="(image, i) in images" :key="i">
-      <ImageCard :author="image.author" :image-url="image.imageUrl"></ImageCard>
-    </v-col>
-  </v-row>
+  <masonry-wall class="mt-n15" :items="images" :column-width="200" :gap="16">
+    <template #default="{ item, index }">
+      <ImageCard :author="item.author" :image-url="item.imageUrl"></ImageCard>
+    </template>
+  </masonry-wall>
 </template>
