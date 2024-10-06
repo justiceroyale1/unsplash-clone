@@ -8,17 +8,36 @@ defineProps({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+    required: true,
+  },
 });
+
+const dialog = ref(false);
+const openDialog = () => {
+  dialog.value = true;
+};
+const closeDialog = () => {
+  dialog.value = false;
+};
 </script>
 <template>
-  <v-card class="mx-auto" max-width="400">
+  <v-card class="mx-auto" max-width="400" @click="openDialog">
     <v-img class="align-end text-white" :src="imageUrl" cover>
       <v-card-title class="fill-height bottom-gradient">
         {{ author }}
       </v-card-title>
-      <!-- <div class="fill-height bottom-gradient"></div> -->
     </v-img>
   </v-card>
+
+  <ImageDialog
+    :dialog="dialog"
+    :author="author"
+    :image-url="imageUrl"
+    :location="location"
+    @close="closeDialog"
+  ></ImageDialog>
 </template>
 
 <style scoped>

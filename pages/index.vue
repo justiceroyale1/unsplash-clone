@@ -14,26 +14,32 @@ useSeoMeta({
 const images = [
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image1.jpg",
   },
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image2.jpg",
   },
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image3.jpg",
   },
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image4.jpg",
   },
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image5.jpg",
   },
   {
     author: "John Doe",
+    location: "Garki, Abuja",
     imageUrl: "/images/image6.jpg",
   },
 ];
