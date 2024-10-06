@@ -44,7 +44,7 @@ const images = computed(() => {
   return tempImages;
 });
 
-const loading = ref(true);
+const loading = ref(false);
 
 const getRandomHeight = () => {
   const heights = [240, 275, 310];
