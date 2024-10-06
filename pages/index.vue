@@ -34,8 +34,15 @@ watch(search, (newValue) => {
     <v-sheet color="grey-lighten-2">
       <v-container class="py-10">
         <v-row>
-          <v-col class="mx-auto" cols="12" md="10">
+          <v-col class="mx-auto py-10" cols="12" md="10">
+            <div class="text-h4 font-weight-bold py-10" v-if="searching">
+              Searching for
+              <span class="montagu-slab text-grey-darken-2"> &ldquo; </span>
+              <span class="text-grey-darken-2"> {{ search }} </span>
+              <span class="montagu-slab text-grey-darken-2"> &rdquo; </span>
+            </div>
             <v-text-field
+              v-else
               v-model="search"
               placeholder="Search for photo"
               variant="solo"
@@ -62,3 +69,11 @@ watch(search, (newValue) => {
     </v-container>
   </v-container>
 </template>
+
+<style scoped>
+.montagu-slab {
+  font-family: "Montagu Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+</style>

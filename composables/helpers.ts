@@ -1,4 +1,4 @@
-const debounce = (func: Function, timeout = 300) => {
+const debounce = (func: Function, timeout = 500) => {
     let timer: NodeJS.Timeout;
 
     return (...args: any) => {

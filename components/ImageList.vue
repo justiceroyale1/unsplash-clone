@@ -47,7 +47,7 @@ const images = computed(() => {
 const loading = ref(true);
 
 const getRandomHeight = () => {
-  const heights = [240, 265, 285, 305];
+  const heights = [240, 275, 310];
   let index = Math.round(Math.random() * (heights.length - 1));
 
   return heights[index];
@@ -79,20 +79,18 @@ const getRandomHeight = () => {
     </template>
   </masonry-wall>
 </template>
-<style lang="css">
-/**.loader-card.v-card__loader {
-  display: none;
-}**/
+
+<style>
+/**
+Note: These styles won't take effect is the style tag is scoped.
+**/
 .loader-card-240 .v-skeleton-loader__image {
   height: 240px;
 }
-.loader-card-265 .v-skeleton-loader__image {
-  height: 265px;
+.loader-card-275 .v-skeleton-loader__image {
+  height: 275px;
 }
-.loader-card-285 .v-skeleton-loader__image {
-  height: 285px;
-}
-.loader-card-305 .v-skeleton-loader__image {
-  height: 305px;
+.loader-card-310 .v-skeleton-loader__image {
+  height: 310px;
 }
 </style>
