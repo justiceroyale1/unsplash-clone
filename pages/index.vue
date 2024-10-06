@@ -11,38 +11,22 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-const images = [
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image1.jpg",
-  },
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image2.jpg",
-  },
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image3.jpg",
-  },
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image4.jpg",
-  },
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image5.jpg",
-  },
-  {
-    author: "John Doe",
-    location: "Garki, Abuja",
-    imageUrl: "/images/image6.jpg",
-  },
-];
+const queryString = ref("");
+const search = ref("");
+const searching = ref(false);
+const setSearching = (value: boolean) => {
+  searching.value = value;
+};
+
+const { debounce } = useHelpers();
+const updateQueryString = debounce(function () {
+  setSearching(true);
+  queryString.value = search.value;
+});
+
+watch(search, (newValue) => {
+  updateQueryString();
+});
 </script>
 
 <template>
@@ -52,6 +36,7 @@ const images = [
         <v-row>
           <v-col class="mx-auto" cols="12" md="10">
             <v-text-field
+              v-model="search"
               placeholder="Search for photo"
               variant="solo"
               bg-color="white"
@@ -71,7 +56,7 @@ const images = [
     <v-container>
       <v-row>
         <v-col class="mx-auto" cols="12" md="8">
-          <ImageList :items="images"></ImageList>
+          <ImageList :search="queryString"></ImageList>
         </v-col>
       </v-row>
     </v-container>
